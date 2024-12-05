@@ -32,10 +32,13 @@ void loadDiets(const char* DIETFILEPATH) {
         printf("There is no file for diets! \n");
         return;
     }
-
+	
      // ToCode: to read a list of the diets from the given file
-    while () {
-    	
+    int i = 0;
+    while (fgets(str, 20, fp) != NULL) {
+    	fgets(diet_list[i].food_name, MAX_FOOD_NAME_LEN, file); //Read and save food name
+		fscanf(file,"%d\n",&diet_list[i].calories_intake);  //Read and save calories intake
+    	i++;
         if (diet_list_size >= MAX_DIETS){
         	break;
 		}

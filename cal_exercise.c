@@ -34,13 +34,15 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while ( ) {
-    	
+    int i = 0;
+    while (i < 6) {
+    	fgets(Exercise exercise_list.exercise_name, MAX_EXERCISE_NAME_LEN, file); //Read and save exercise name
+    	fscanf(file,"%d\n",&Exercise exercise_list.calories_burned_per_minute); //Read and save burned calories per minute
+    	i++;
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
     }
-
     fclose(file);
 }
 
