@@ -47,11 +47,11 @@ int main() {
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
-            	loadDiets(&diets.txt); //
+            	inputDiet(); 
                 break;
                 
             case 2:
-    			loadExercises(&exercise.txt);
+    			inputExercise();
                 break;
                 
             case 3:
@@ -68,7 +68,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while ( );
+    } while (health_data.total_calories_intake - BASAL_METABOLIC_RATE - health_data.total_calories_burned == 0 || choice == 4); //condition to exit program
 
     return 0;
 }
