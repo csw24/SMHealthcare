@@ -34,11 +34,13 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 	
      // ToCode: to read a list of the diets from the given file
-    int i = 0;
-    while (i < 6) {
-    	fgets(diet_list[i].food_name, MAX_FOOD_NAME_LEN, file); //Read and save food name
-		fscanf(file,"%d\n",diet_list[i].calories_intake);  //Read and save calories intake
-    	i++;
+    while (1) {
+    	if(fscanf(file, "%s %d", diet_list[diet_list_size].food_name, 
+			&diet_list[diet_list_size].calories_intake) == EOF) //Read and save food name and calories intake
+    	{
+    		break;
+		}
+    	diet_list_size++;
         if (diet_list_size >= MAX_DIETS){
         	break;
 		}
@@ -60,22 +62,24 @@ void inputDiet(HealthData* health_data) {
     
     // ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
-    for(i=1; i<7; i++)
+    for(i=0; i<diet_list_size; i++)
 	{
-		printf("%d. %s (%d kcal)\n", i, diet_list[i-1].food_name, diet_list[i-1].calories_intake); //print diet list 
+		printf("%d. %s (%d kcal)\n", i+1, diet_list[i].food_name, diet_list[i].calories_intake); //print diet list 
 	}
 	printf("7. Exit\n"); //option to escape
 	printf("choose (1-7): "); //options
     
 	// ToCode: to enter the diet to be chosen with exit option
     scanf("%d", &choice); //scan the choice a user made
-	if(i ==  7)
+	if(choice == 7)
 	{
-		break;
+		return;
 	} // condition to exit 
     // ToCode: to enter the selected diet in the health data
-    strcpy(health_data.diet[health_data.diet_count].food_name, "%s", diet_list[i-1].food_name); //save data of food name to health data
+    strcpy(health_data.diet[0].food_name, diet_list[choice-1].food_name); //save data of food name to health data
     // ToCode: to enter the total calories intake in the health data
-	health_data.diet[health_data.diet_count].calories_intake = diet_list[i-1].calories_intake; //save data of calories  intake to health data
+	health_data.diet[health_data.diet_count].calories_intake = diet_list[choice-1].calories_intake; //save data of calories  intake to health data
+	printf("%s %d\n", health_data.diet[health_data.diet_count].food_name, health_data.diet[health_data.diet_count].calories_intake);
+	health_data.diet_count++;
 }
 
