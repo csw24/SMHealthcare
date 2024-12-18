@@ -1,9 +1,12 @@
 [Exercises] 
-Total calories burned: 0 kcal 
+Total calories burned: 0 kcal
 
 [Diets] 
-Total calories intake: 0 kcal 
+rice - 600 kcal
+chicken - 925 kcal
+chicken - 925 kcal
+Total calories intake: 2450 kcal
 
 [Total] 
-Basal metabolic rate: 1300 kcal
-The remaining calories: -1300 kcal
+Basal metabolic rate - 1300 kcal
+The remaining calories - 1150

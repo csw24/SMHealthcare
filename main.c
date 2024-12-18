@@ -24,8 +24,8 @@ int main() {
     HealthData health_data = {0};
     
     // Tocode: to read the list of the exercises and diets
-    loadDiets(&DIETFILEPATH);
-    loadExercises(&EXERCISEFILEPATH);
+    loadDiets(DIETFILEPATH);
+    loadExercises(EXERCISEFILEPATH);
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
@@ -47,15 +47,17 @@ int main() {
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
-            	inputExercise(&health_data); // save the chosen exercise and total calories burned to health_data
+            	inputExercise(&health_data); //save the chosen exercise and total calories burned to health_data
+            	saveData(HEALTHFILEPATH, &health_data); //save data to health_data.txt
                 break;
                 
             case 2:
     			inputDiet(&health_data); // save the chosen diet and total calories intake to health_data
+    			saveData(HEALTHFILEPATH, &health_data); //save data to health_data.txt
                 break;
                 
             case 3:
-            	
+            	printHealthData(&health_data); //print history of food name, exercise name, each calories, total calories intake, total calories burned, remaining calories and recommendation 
                 break;
                 
             case 4:
