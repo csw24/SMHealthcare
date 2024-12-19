@@ -1,12 +1,18 @@
 [Exercises] 
-Total calories burned: 0 kcal
+running - 660 kcal
+swimming - 480 kcal
+riding - 495 kcal
+Total calories burned: 1635 kcal
 
 [Diets] 
+salad - 70 kcal
+bread - 680 kcal
+pizza - 900 kcal
+tteokbokki - 615 kcal
+salad - 70 kcal
 rice - 600 kcal
-chicken - 925 kcal
-chicken - 925 kcal
-Total calories intake: 2450 kcal
+Total calories intake: 2935 kcal
 
 [Total] 
 Basal metabolic rate - 1300 kcal
-The remaining calories - 1150
+The remaining calories - 0

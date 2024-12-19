@@ -35,8 +35,8 @@ void loadDiets(const char* DIETFILEPATH) {
 	
      // ToCode: to read a list of the diets from the given file
     while (fscanf(file, "%s %d", diet_list[diet_list_size].food_name, &diet_list[diet_list_size].calories_intake) != EOF) {
-    	//Read and save food name and calories intake
-    	diet_list_size++; //increase diet_list_size for saving next input
+    	//Read food name and calories intake from diets.txt and save them to diet_list/ if it meets the end of the file, then it stops
+    	diet_list_size++; //increase diet_list_size for next input
         if (diet_list_size >= MAX_DIETS){
         	break;
 		}
@@ -60,22 +60,22 @@ void inputDiet(HealthData* health_data) {
     printf("The list of diets:\n");
     for(i=0; i<diet_list_size; i++)
 	{
-		printf("%d. %s (%d kcal)\n", i+1, diet_list[i].food_name, diet_list[i].calories_intake); //print diet list 
+		printf("%d. %s (%d kcal)\n", i+1, diet_list[i].food_name, diet_list[i].calories_intake); //print diet_list to screen
 	}
-	printf("7. Exit\n"); //option to escape this function
+	printf("7. Exit\n"); //suggest an option to escape this function
 	printf("choose (1-7): "); //to make users choose one of the options
     
 	// ToCode: to enter the diet to be chosen with exit option
-    scanf("%d", &choice); //scan the choice a user made
+    scanf("%d", &choice); //scan the choice that a user made
 	if(choice == 7)
 	{
-		return;
-	} // condition to exit this function
+		return; 
+	} // condition to exit this function 
     // ToCode: to enter the selected diet in the health data
     strcpy(health_data->diet[health_data->diet_count].food_name, diet_list[choice-1].food_name); //save data of food name to health_data
     // ToCode: to enter the total calories intake in the health data
 	health_data->diet[health_data->diet_count].calories_intake = diet_list[choice-1].calories_intake; //save data of calories  intake to health_data
 	health_data->total_calories_intake = health_data->total_calories_intake + health_data->diet[health_data->diet_count].calories_intake; //save total calories intake to health_data
-	health_data->diet_count++; //increase diet_count for saving next input
+	health_data->diet_count++; //increase diet_count for next input
 }
 
