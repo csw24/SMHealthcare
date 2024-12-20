@@ -38,7 +38,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
     {
     	fprintf(file, "%s - %d kcal\n", health_data->exercises[i].exercise_name, health_data->exercises[i].calories_burned_per_minute); // print exercise name that a user did until that time and calories burned to health_data.txt
 	}
-	fprintf(file, "%Total calories burned: %d kcal\n", health_data->total_calories_burned); //print total calories burned to health_data.txt
+	fprintf(file, "Total calories burned: %d kcal\n", health_data->total_calories_burned); //print total calories burned to health_data.txt
 	
     // ToCode: to save the chosen diet and total calories intake 
     fprintf(file, "\n[Diets] \n");
@@ -46,7 +46,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	{
 		fprintf(file, "%s - %d kcal\n", health_data->diet[i].food_name, health_data->diet[i].calories_intake); //print food name that a user had until that time and calories intake to health_data.txt
 	}
-	fprintf(file, "%Total calories intake: %d kcal\n", health_data->total_calories_intake); //print total calories intake to health_data.txt
+	fprintf(file, "Total calories intake: %d kcal\n", health_data->total_calories_intake); //print total calories intake to health_data.txt
 	
     // ToCode: to save the total remaining calrories
     fprintf(file, "\n[Total] \n");
@@ -97,8 +97,6 @@ void printHealthData(const HealthData* health_data) {
     
 	
 	// ToCode: to print out the recommendtaion depending on the current total calories burned and intake    
-    printf("\n");
-    printf("\n");
     if(health_data->total_calories_intake - health_data->total_calories_burned - BASAL_METABOLIC_RATE > 0) //calculate remaining calrories and set condition to recommend more exercise 
     {
     	printf("Please exercise for your health!\n");
@@ -107,7 +105,7 @@ void printHealthData(const HealthData* health_data) {
     		printf("Your total calories intake for today has reached your goal!\n");
 		} else if(health_data->total_calories_intake < 2000)
 		{
-			printf("Your total calories intake for today has not reached your goal, remember to eat more\n"); //condition to recommend more diet
+			printf("Your total calories intake for today has not reached your goal, remember to eat more!\n"); //condition to recommend more diet
 		}
 	}
 	else if(health_data->total_calories_intake - health_data->total_calories_burned - BASAL_METABOLIC_RATE < 0) //calculate remaining calrories and set condition to warn because of few calories
@@ -118,7 +116,7 @@ void printHealthData(const HealthData* health_data) {
 			printf("You have eaten more calories than planned today, but you have exercised too much!\n"); //condition to recommend more diet, not exercise
 		} else if(health_data->total_calories_intake < 2000)
 		{
-			printf("Your total calories intake for today has not reached your goal, remember to eat more\n"); //condition to recommend more diet
+			printf("Your total calories intake for today has not reached your goal, remember to eat more!\n"); //condition to recommend more diet
 		} else
 		{
 			printf("Your total calories intake for today has reached your goal!\n"); //condition not to recommend more diet

@@ -71,7 +71,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while (choice != 4); //set condition to exit program if a user choice is 4
+    } while (choice != 4); //set condition to exit program if a user's choice is 4
 
     return 0;
 }
